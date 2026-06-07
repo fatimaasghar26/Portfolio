@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fatima Asghar — Frontend Developer</title>
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --ink: #1a1714;
+      --muted: #6b6460;
+      --accent: #c87a31;
+      --accent2: #2f9829;
+      --border: #d9d2c8;
+      --card-bg: #faf7f2;
+      --shadow: 0 2px 24px rgba(26, 23, 20, 0.08);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Cambria', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Cambria', serif;
+      font-weight: 400;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.15;
+      margin-bottom: 48px;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    header {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 90px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      position: relative;
+    }
+
+    .profile-pic-wrap {
+      flex-shrink: 0;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+      background: #2e2b28;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cambria', serif;
+      font-size: 52px;
+      color: rgba(245, 240, 232, 0.5);
+      letter-spacing: -1px;
+    }
+
+    .profile-pic-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-text {
+      flex: 1;
+    }
+
+    .header-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      background: rgba(200, 75, 49, 0.12);
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    header h1 {
+      font-size: clamp(2.6rem, 7vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+
+    .professional-title {
+      font-size: 1.1rem;
+      color: rgba(245, 240, 232, 0.65);
+      font-weight: 300;
+    }
+
+    nav {
+      background: var(--ink);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 16px 22px;
+      color: rgba(245, 240, 232, 0.65);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s, background 0.2s;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    nav ul li:first-child a {
+      border-left: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    nav ul li a:hover {
+      color: var(--cream);
+      background: rgba(200, 75, 49, 0.12);
+    }
+
+    #about {
+      background: var(--cream);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+    }
+
+    .about-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 32px 28px;
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .about-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+
+    .about-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .about-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .about-card ul {
+      font-size: 0.92rem;
+      list-style: none;
+      color: var(--muted);
+    }
+
+    #skills {
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 18px 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .skill-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .skill-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .skill-item span {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    #projects {
+      background: var(--cream);
+    }
+
+    .projects-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-bottom: 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    thead tr {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    thead th {
+      padding: 16px 24px;
+      text-align: left;
+      font-family: 'Cambria', serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: rgba(200, 75, 49, 0.04);
+    }
+
+    tbody td {
+      padding: 16px 24px;
+      color: var(--ink);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 2px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .badge-done {
+      background: rgba(61, 107, 142, 0.12);
+      color: var(--accent2);
+    }
+
+    .badge-prog {
+      background: rgba(200, 75, 49, 0.12);
+      color: var(--accent);
+    }
+
+    #projects h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .bonus-media {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .bonus-media iframe {
+      flex: 1;
+      min-width: 300px;
+      height: 250px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    #contact {
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    .contact-info p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .contact-detail span:first-child {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 12px 16px;
+      font-family: 'Cambria', serif;
+      font-size: 0.9rem;
+      color: var(--ink);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(200, 75, 49, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    button[type="submit"] {
+      background: var(--accent);
+      color: var(--cream);
+      border: none;
+      padding: 14px 36px;
+      font-family: 'Cambria', serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    button[type="submit"]:hover {
+      background: #b03e28;
+      transform: translateY(-1px);
+    }
+
+    footer {
+      background: var(--ink);
+      color: rgba(245, 240, 232, 0.55);
+      padding: 40px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer p {
+      font-size: 13px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      color: rgba(245, 240, 232, 0.55);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: var(--cream);
+      border-color: var(--accent);
+    }
+
+    .cv-btn {
+      display: inline-block;
+      margin-top: 24px;
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 22px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .cv-btn:hover {
+      background: rgba(200, 75, 49, 0.2);
+      border-color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 28px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+      }
+
+      nav ul li a {
+        font-size: 12px;
+        padding: 14px 16px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="home">
+    <div class="container">
+      <div class="header-inner">
+        <div class="profile-pic-wrap" title="Profile Picture">
+          <img src="https://placehold.co/140x140/2e2b28/f5f0e8?text=FA" alt="Fatima Asghar — Profile Photo" />
+        </div>
+        <div class="header-text">
+          <span class="header-tag">Looking for Internships</span>
+          <h1>Fatima Asghar</h1>
+          <p class="professional-title">CS Student & Frontend Dev Intern</p>
+          <a href="#" download class="cv-btn">⬇ Download CV</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section id="about">
+    <div class="container">
+      <span class="section-label">Who I Am</span>
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <article class="about-card">
+          <h3>Introduction</h3>
+          <p>
+            Hi! I'm Fatima, a front-end developer and CS student. I love turning design ideas into clean, interactive
+            web experiences, and I'm always looking to practice and learn new skills.
+          </p>
+        </article>
+        <article class="about-card">
+          <h3>My Goals</h3>
+          <p>
+            I want to build fast, accessible, and clean web apps. My focus right now is mastering modern frontend tools
+            and contributing to real-world team projects.
+          </p>
+        </article>
+        <article class="about-card">
+          <h3>Education</h3>
+          <ul>
+            <li>BS Computer Science — COMSATS, Wah <span>2024 — Present</span></li>
+            <li>Current Semester: <span>4th (Spring 2026)</span></li>
+            <li>CGPA (Fall 2024): <span>3.47</span></li>
+            <li>CGPA (Spring 2025): <span>3.34</span></li>
+            <li>CGPA (Fall 2025): <span>3.24</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+  <section id="skills">
+    <div class="container">
+      <span class="section-label">What I Know</span>
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-item"><span class="skill-dot"></span><span>HTML5</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>CSS3</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>JavaScript</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Git & GitHub</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>Responsive Design</span></div>
+        <div class="skill-item"><span class="skill-dot"></span><span>VS Code</span></div>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <div class="container">
+      <span class="section-label">What I've Built</span>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Project Name</th>
+              <th>Technology</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Portfolio Website</td>
+              <td>HTML5</td>
+              <td><span class="badge badge-done">Completed</span></td>
+            </tr>
+            <tr>
+              <td>Calculator App</td>
+              <td>HTML5</td>
+              <td><span class="badge badge-prog">In Progress</span></td>
+            </tr>
+            <tr>
+              <td>Sorting Visualizer</td>
+              <td>Python / Pygame</td>
+              <td><span class="badge badge-done">Completed</span></td>
+            </tr>
+            <tr>
+              <td>AI Study Buddy</td>
+              <td>HTML, CSS , JavaScript</td>
+              <td><span class="badge badge-prog">In Progress</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>My Learning Space & Location</h3>
+      <div class="bonus-media">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXc" title="Frontend Tutorial Video" allowfullscreen></iframe>
+        <iframe src="https://maps.google.com/maps?q=Islamabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          title="Google Maps Location" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+  <section id="contact">
+    <div class="container">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Let's Chat</h3>
+          <p>Have a question or want to work together? Drop me a message through the form.</p>
+          <div class="contact-detail">
+            <span>Islamabad, Pakistan</span>
+          </div>
+          <div class="contact-detail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope"
+              viewBox="0 0 16 16">
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+            </svg>
+            <span>fatima@example.com</span>
+          </div>
+          <div class="contact-detail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase"
+              viewBox="0 0 16 16">
+              <path
+                d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5m1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0M1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5" />
+            </svg>
+            <span>Open to Internships</span>
+          </div>
+        </div>
+
+        <form action="#" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message here…" required></textarea>
+          </div>
+          <button type="submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p>© 2026 Fatima Asghar. All rights reserved.</p>
+        <nav class="social-links" aria-label="Social media links">
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+    </div>
+    </section>
+</body>
+
+</html>

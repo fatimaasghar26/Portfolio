@@ -351,6 +351,39 @@
       margin-bottom: 20px;
     }
 
+    .project-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    .project-link:hover {
+      opacity: 0.65;
+      text-decoration: underline;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
     #contact {
       background: var(--card-bg);
       border-top: 1px solid var(--border);
@@ -481,6 +514,28 @@
       border-color: var(--accent);
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .hero-actions .cv-btn {
+      margin-top: 0;
+    }
+
+    .cv-btn-solid {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--ink);
+    }
+
+    .cv-btn-solid:hover {
+      background: transparent;
+      color: var(--cream);
+    }
+
     @media (max-width: 768px) {
       .header-inner {
         flex-direction: column;
@@ -520,7 +575,11 @@
           <span class="header-tag">Looking for Internships</span>
           <h1>Fatima Asghar</h1>
           <p class="professional-title">CS Student & Frontend Dev Intern</p>
-          <a href="Fatima_Asghar_CV.pdf" download class="cv-btn">⬇ Download CV</a>
+          <div class="hero-actions">
+            <a href="Fatima_Asghar_CV.pdf" download class="cv-btn">⬇ Download CV</a>
+            <a href="mailto:fatimaasghar2601@gmail.com" class="cv-btn cv-btn-solid">✉ Email Me</a>
+            <a href="https://wa.me/923015079430" target="_blank" rel="noopener" class="cv-btn cv-btn-solid">💬 WhatsApp</a>
+          </div>
         </div>
       </div>
     </div>
@@ -541,21 +600,21 @@
       <span class="section-label">Who I Am</span>
       <h2 class="section-title">About Me</h2>
       <div class="about-grid">
-        <article class="about-card">
+        <article class="about-card" data-reveal>
           <h3>Introduction</h3>
           <p>
             Hi! I'm Fatima, a front-end developer and CS student. I love turning design ideas into clean, interactive
             web experiences, and I'm always looking to practice and learn new skills.
           </p>
         </article>
-        <article class="about-card">
+        <article class="about-card" data-reveal>
           <h3>My Goals</h3>
           <p>
             I want to build fast, accessible, and clean web apps. My focus right now is mastering modern frontend tools
             and contributing to real-world team projects.
           </p>
         </article>
-        <article class="about-card">
+        <article class="about-card" data-reveal>
           <h3>Education</h3>
           <ul>
             <li>BS Computer Science — COMSATS, Wah <span>2024 — Present</span></li>
@@ -612,13 +671,14 @@
     <div class="container">
       <span class="section-label">What I've Built</span>
       <h2 class="section-title">Projects</h2>
-      <div class="projects-table-wrap">
+      <div class="projects-table-wrap" data-reveal>
         <table>
           <thead>
             <tr>
               <th>Project Name</th>
               <th>Technology</th>
               <th>Status</th>
+              <th>Link</th>
             </tr>
           </thead>
           <tbody>
@@ -626,31 +686,37 @@
               <td>LLM Security Gateway</td>
               <td>FastAPI, Python, Microsoft Presidio</td>
               <td><span class="badge badge-done">Completed</span></td>
+              <td><a href="https://github.com/fatimaasghar26" target="_blank" rel="noopener" class="project-link">View →</a></td>
             </tr>
             <tr>
               <td>Deadlock Detection & Recovery System</td>
               <td>C, OpenMP, Python</td>
               <td><span class="badge badge-done">Completed</span></td>
+              <td><a href="https://github.com/fatimaasghar26" target="_blank" rel="noopener" class="project-link">View →</a></td>
             </tr>
             <tr>
               <td>AI Study Buddy</td>
-              <td>HTML, CSS, JavaScript</td>
-              <td><span class="badge badge-prog">In Progress</span></td>
+              <td>Node.js, Express, Groq API</td>
+              <td><span class="badge badge-done">Completed</span></td>
+              <td><a href="https://github.com/fatimaasghar26" target="_blank" rel="noopener" class="project-link">View →</a></td>
             </tr>
             <tr>
               <td>DSA Paint Simulator</td>
               <td>C++, Win32/GDI</td>
               <td><span class="badge badge-done">Completed</span></td>
+              <td><a href="https://github.com/fatimaasghar26" target="_blank" rel="noopener" class="project-link">View →</a></td>
             </tr>
             <tr>
               <td>Jadoo Travel Landing Page</td>
               <td>HTML5, CSS3</td>
               <td><span class="badge badge-done">Completed</span></td>
+              <td><a href="https://github.com/fatimaasghar26" target="_blank" rel="noopener" class="project-link">View →</a></td>
             </tr>
             <tr>
               <td>CodeAlpha Python Task Suite</td>
               <td>Python, Tkinter</td>
-              <td><span class="badge badge-prog">In Progress</span></td>
+              <td><span class="badge badge-done">Completed</span></td>
+              <td><a href="https://github.com/fatimaasghar26" target="_blank" rel="noopener" class="project-link">View →</a></td>
             </tr>
           </tbody>
         </table>
@@ -663,7 +729,7 @@
       <span class="section-label">Get In Touch</span>
       <h2 class="section-title">Contact</h2>
       <p class="contact-intro">Have a question or want to work together? Reach out through any of the options below.</p>
-      <div class="contact-grid">
+      <div class="contact-grid" data-reveal>
         <a href="mailto:fatimaasghar2601@gmail.com" class="contact-card">
           <span class="contact-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -684,6 +750,16 @@
             </svg>
           </span>
           <h3>Phone</h3>
+          <p>+92 301 5079430</p>
+        </a>
+        <a href="https://wa.me/923015079430" target="_blank" rel="noopener" class="contact-card">
+          <span class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.006-3.507c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.594-6.593 6.594m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.246c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.337-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+            </svg>
+          </span>
+          <h3>WhatsApp</h3>
           <p>+92 301 5079430</p>
         </a>
         <div class="contact-card">
@@ -722,6 +798,18 @@
       </div>
     </div>
   </footer>
+  <script>
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('is-visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 
 </html>

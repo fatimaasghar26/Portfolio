@@ -24,7 +24,7 @@ This repository contains the source code for my personal portfolio — a single-
 |---|---|
 | Markup | HTML5 (semantic elements) |
 | Styling | CSS3, CSS Custom Properties (variables), Flexbox, Grid |
-| Interactivity | Vanilla JavaScript (IntersectionObserver, Clipboard API) |
+| Interactivity | JavaScript (IntersectionObserver, Clipboard API) |
 | Hosting | GitHub Pages |
 
 ## 📁 Project Structure

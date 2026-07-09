@@ -5,7 +5,7 @@ A Personal portfolio website built with HTML5.
 3. No frameworks or dependencies
 
 ## How to Run
-Open `index.html` in any browser. That's it.
+Open `https://fatimaasghar26.github.io/Portfolio/` in any browser. That's it.
 
 ## Tech
 HTML5 · CSS3 · CSS Variables · Flexbox · Grid

@@ -1,0 +1,15 @@
+# .cursorrules
+
+## Stack
+- Plain HTML, CSS, JavaScript — no framework, no build step
+- Hosted on GitHub Pages at fatimaasghar26.github.io/Portfolio
+
+## Conventions
+- Commit messages follow Conventional Commits (feat:, fix:, docs:, chore:, style:)
+- No inline styles — all CSS in dedicated stylesheets
+- Vanilla JS only, no jQuery or frameworks unless explicitly added here
+- Project links must point to individual GitHub repos, not the generic profile
+
+## Known issues to fix
+- Skills section is missing React, Node.js, MongoDB, Express
+- Project links currently route to generic GitHub profile instead of specific repos

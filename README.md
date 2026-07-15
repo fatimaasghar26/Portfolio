@@ -1,6 +1,6 @@
 #  Fatima Asghar — Personal Portfolio
 
-A clean, responsive personal portfolio website built entirely with vanilla HTML5 and CSS3 — no frameworks, no build tools, no dependencies.
+A developer portfolio where hiring managers can review my projects, skills, and résumé in one place — built with vanilla HTML5, CSS3, and JavaScript (no frameworks, no build tools).
 
 **🔗 Live site:** [fatimaasghar26.github.io/Portfolio](https://fatimaasghar26.github.io/Portfolio/)
 

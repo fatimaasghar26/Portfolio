@@ -213,6 +213,86 @@ nav ul li a:hover {
   color: var(--muted);
 }
 
+#experience {
+  background: var(--card-bg);
+}
+
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  border-left: 2px solid var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -38px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--card-bg);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.timeline-content {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 24px 28px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+
+.timeline-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.timeline-head h3 {
+  font-size: 1.2rem;
+}
+
+.timeline-date {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.timeline-org {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.timeline-desc {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
 #skills {
   background: var(--card-bg);
   border-top: 1px solid var(--border);
@@ -573,5 +653,22 @@ footer p {
   .footer-inner {
     flex-direction: column;
     text-align: center;
+  }
+
+  .timeline {
+    padding-left: 24px;
+  }
+
+  .timeline-dot {
+    left: -30px;
+  }
+
+  .timeline-content {
+    padding: 20px 20px;
+  }
+
+  .timeline-head {
+    flex-direction: column;
+    gap: 2px;
   }
 }
